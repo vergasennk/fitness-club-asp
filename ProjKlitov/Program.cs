@@ -1,3 +1,5 @@
+using ProjKlitov.Controllers;
+
 namespace ProjKlitov
 {
     public class Program
@@ -8,6 +10,7 @@ namespace ProjKlitov
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<ProductRepository>();
 
             var app = builder.Build();
 
@@ -28,7 +31,7 @@ namespace ProjKlitov
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Products}/{action=Index}/{id?}");
 
             app.Run();
         }

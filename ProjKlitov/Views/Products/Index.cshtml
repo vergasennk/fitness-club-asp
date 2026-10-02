@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ProjKlitov.Models.Product>
+
+<h2>Список товаров</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Категория</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Category</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@product.Id">Подробнее</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
